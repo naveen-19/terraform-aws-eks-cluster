@@ -35,7 +35,7 @@ variable "private_subnets" {
 }
 
 variable "aws_profile" {
-  default = "eks"
+  default = "test"
   description = "configure AWS CLI profile"
 }
 
