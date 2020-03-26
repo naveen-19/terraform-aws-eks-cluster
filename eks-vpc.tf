@@ -39,7 +39,7 @@ resource "aws_subnet" "eks-public" {
 resource "aws_internet_gateway" "eks-igw" {
   vpc_id = "${aws_vpc.eks.id}"
 
-  tags {
+  tags = {
     Name = "eks-internet-gateway"
   }
 }
@@ -92,7 +92,7 @@ resource "aws_nat_gateway" "nat_gw" {
   subnet_id     = "${aws_subnet.eks-public.*.id[count.index]}"  #public subnet 
   depends_on = ["aws_internet_gateway.eks-igw"]
 
-  tags {
+  tags = {
     Name = "gw NAT"
   }
 }
@@ -101,7 +101,7 @@ resource "aws_nat_gateway" "nat_gw" {
 resource "aws_route_table" "eks-private" {
   vpc_id = "${aws_vpc.eks.id}"
 
-  tags {
+  tags = {
         Name = "route table for private subnets"
     }
 }
