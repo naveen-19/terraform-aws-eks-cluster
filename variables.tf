@@ -6,7 +6,7 @@ variable "cluster-name" {
 
 variable "eks-worker-ami" {
   description = "Please visit here - https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html and select your pre-baked AMI depending on the cluster version and the region you are planning to launch cluster into"
-  default = "ami-03b5297d565ef30a6"
+  default = "ami-04655e6da8951ba4"
 }
 
 # In eks worker node instance type directly affects the number of PODs can run on a Node. Choose wisely.
@@ -25,13 +25,13 @@ variable "ssh_key_pair" {
 variable "public_subnets" {
     type    = "list"
     description = "you can replace these values as per your choice of subnet range"
-    default = ["10.15.0.0/22", "10.15.4.0/22", "10.15.8.0/22"]
+    default = ["10.15.0.0/22"]#, "10.15.4.0/22", "10.15.8.0/22"]
 }
 
 variable "private_subnets" {
     type    = "list"
     description = "you can replace these values as per your choice of subnet range"
-    default = ["10.15.12.0/22", "10.15.16.0/22", "10.15.20.0/22"]
+    default = ["10.15.12.0/22"]#, "10.15.16.0/22", "10.15.20.0/22"]
 }
 
 variable "aws_profile" {
