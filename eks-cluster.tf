@@ -94,10 +94,9 @@ resource "aws_eks_cluster" "eks-cluster" {
   vpc_config {
     security_group_ids = ["${aws_security_group.eks-cluster.id}"]
     subnet_ids         = concat(["${aws_subnet.eks-public.*.id}","${aws_subnet.eks-private.*.id}"])
-
+    }
   depends_on = [
     "aws_iam_role_policy_attachment.eks-cluster-AmazonEKSClusterPolicy",
     "aws_iam_role_policy_attachment.eks-cluster-AmazonEKSServicePolicy",
   ]
-}
 }
