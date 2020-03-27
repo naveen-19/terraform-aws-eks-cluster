@@ -86,14 +86,14 @@ resource "aws_eip" "nat" {
 }
 
 resource "aws_nat_gateway" "nat_gw" {
-  count = 0
+  count = 1
   
   allocation_id = "${aws_eip.nat.id}"
   subnet_id     = "${aws_subnet.eks-public.*.id[count.index]}"  #public subnet 
   depends_on = ["aws_internet_gateway.eks-igw"]
 
   tags = {
-    Name = "gw NAT"
+    Name = "gw_NAT"
   }
 }
 
