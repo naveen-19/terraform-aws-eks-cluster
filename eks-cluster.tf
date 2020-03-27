@@ -100,3 +100,4 @@ resource "aws_eks_cluster" "eks-cluster" {
     "aws_iam_role_policy_attachment.eks-cluster-AmazonEKSServicePolicy",
   ]
 }
+}
